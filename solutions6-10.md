@@ -1,4 +1,4 @@
-- 6.
+- 第六题 Z字形变换
 ```
 class Solution {
 
@@ -23,7 +23,7 @@ class Solution {
     }
 }
 ```
-- 7.
+- 第七题 整数反转
 ```
 class Solution {
     final double max=Math.pow(2,31)-1;
@@ -70,7 +70,7 @@ class Solution {
     }
 }
 ```
-- 8.
+- 第八题 字符串转换整数 (atoi)
 ```
 class Solution {
     final int max=Integer.MAX_VALUE;
@@ -138,7 +138,7 @@ class Solution {
     }
 }
 ```
-- 9.
+- 第九题 回文数
 ```
 class Solution {
     public boolean isPalindrome(int x) {
@@ -156,5 +156,5 @@ class Solution {
     }
 }
 ```
-- 第十题
+- 第十题 正则表达式匹配
 太难了，不想写。
