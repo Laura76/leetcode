@@ -102,3 +102,68 @@ class Solution {
     }
 }
 ```
+- 第十九题 删除链表的倒数第N个节点
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        if(head.next==null&&n==1)return null;
+        ListNode first=head;
+        ListNode second=head;
+        for(int i=0;i<n;i++){
+            first=first.next;
+        }
+        if(first==null){
+            return head.next;
+        }
+        while(first!=null&&first.next!=null){
+            first=first.next;
+            second=second.next;
+        }
+        if(second==first){
+            second=null;
+        }else if(second.next==first){
+            second.next=null;
+        }else{
+            second.next=second.next.next;
+        }
+        return head;
+    }
+}
+```
+- 第二十题  有效的括号
+```
+class Solution {
+    Map<Character,Character> map=new HashMap<Character,Character>(){
+        {
+            put(')','(');
+            put('}','{');
+            put(']','[');
+        }
+    };
+    public boolean isValid(String s) {
+        char[] brackets=s.toCharArray();
+        Stack<Character> stack=new Stack<Character>();
+        for(int i=0;i<brackets.length;i++){
+            if(map.containsKey(brackets[i])){
+                if(stack.isEmpty())return false;
+                if(stack.peek()==map.get(brackets[i])){
+                    stack.pop();
+                }else{
+                    return false;
+                }
+            }else{
+                stack.push(brackets[i]);
+            }
+        }
+        return stack.isEmpty();
+    }
+}
+```
