@@ -25,5 +25,8 @@ class Solution {
         pre.next=(l1==null)?l2:l1;
         return preHead.next;
     }
-} 
+}
 ```
+- 第二十二题 括号生成 暂不处理
+- 第二十三题 合并K个排序链表 困难题目
+- 第二十四题 两两交换链表中的节点
