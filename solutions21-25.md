@@ -30,3 +30,25 @@ class Solution {
 - 第二十二题 括号生成 暂不处理
 - 第二十三题 合并K个排序链表 困难题目
 - 第二十四题 两两交换链表中的节点
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode swapPairs(ListNode head) {
+        if(head==null||head.next==null){
+            return head;
+        }
+        ListNode mute=new ListNode(-1);
+        mute.next=head.next;
+        head.next=swapPairs(head.next.next);
+        mute.next.next=head;
+        return mute.next;
+    }
+}
+```
