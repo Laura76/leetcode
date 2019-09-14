@@ -14,3 +14,19 @@ class Solution {
     }
 }
 ```
+- 第二十七题 移除元素
+```
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int res=0;
+        int len=nums.length;
+        for(int i=0;i<len;i++){
+            if(nums[i]!=val){
+                nums[res]=nums[i];
+                res++;
+            }
+        }
+        return res;
+    }
+}
+```
