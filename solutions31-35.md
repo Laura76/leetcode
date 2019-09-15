@@ -64,3 +64,87 @@ class Solution {
     }
 }
 ```
+- 第三十四题 在排序数组中查找元素的第一个和最后一个位置
+```
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int len=nums.length;
+        if(len==0)return new int[]{-1,-1};
+        int[] res=new int[2];
+        int start=0;
+        int end=len-1;
+        while(start<end){
+            int mid=start+((end-start)>>1);
+            if(nums[mid]==target){
+                end=mid-1;
+            }else if(nums[mid]>target){
+                end=mid-1;
+            }else if(nums[mid]<target){
+                start=mid+1;
+            }
+        }
+        if(nums[start]==target){
+            res[0]=start;
+        }else if(start+1<len&&nums[start+1]==target){
+            res[0]=start+1;
+        }else{
+            res[0]=-1;
+        }
+        end=len-1;
+        if(start==end){
+            res[1]=res[0];
+            return res;
+        }
+        while(start<end){
+            int mid=start+((end-start)>>1);
+            if(nums[mid]==target){
+                start=mid+1;
+            }else if(nums[mid]>target){
+                end=mid-1;
+            }else if(nums[mid]<target){
+                start=mid+1;
+            }
+        }
+        if(res[0]==-1){
+            res[1]=-1;
+        }else if(nums[start]==target){
+            res[1]=start;
+        }else{
+            res[1]=start-1;
+        }
+        return res;
+    }
+}
+```
+- 第三十五题 搜索插入位置
+```
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int len=nums.length;
+        int start=0;int end=len-1;
+        while(start<=end){
+            int mid=start+((end-start)>>1);
+            if(nums[mid]==target){
+                return mid;
+            }else if(nums[mid]>target){
+                end=mid-1;
+            }else if(nums[mid]<target){
+                start=mid+1;
+            }
+        }
+        if(start==0){
+            return 0;
+        }else if(start==len){
+            return len;
+        }
+        if(nums[start]>target&&nums[end]>target){
+            return Math.min(start,end);
+        }else if(nums[start]>target){
+            return start;
+        }else if(nums[end]>target){
+            return end;
+        }
+        return 0;
+    }
+}
+```
