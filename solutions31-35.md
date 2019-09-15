@@ -39,3 +39,28 @@ class Solution {
     }
 }
 ```
+- 第三十二题 困难 不要啦
+- 第三十三题 搜索旋转排序数组
+```
+class Solution {
+    public int search(int[] nums, int target) {
+        int start=0;
+        int len=nums.length;
+        int end=len-1;
+        while(start<=end){
+            int mid=start+((end-start)>>1);
+            if(nums[mid]==target)return mid;
+            if(nums[mid]>=nums[start]&&target<=nums[mid]&&target>=nums[start]){
+                end=mid-1;
+            }else if(nums[mid]>=nums[start]&&(target<nums[start]||target>nums[mid])){
+                start=mid+1;
+            }else if(nums[mid]<nums[start]&&target>nums[mid]&&target<=nums[end]){
+                start=mid+1;
+            }else{
+                end=mid-1;
+            }
+        }
+        return -1;
+    }
+}
+```
