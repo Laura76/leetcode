@@ -57,3 +57,61 @@ class Solution {
     }
 }
 ```
+- 第三十九题 组合总和
+
+```
+class Solution {
+    private List<List<Integer>> res=new LinkedList<>();
+    private int len;
+    private int[] candidates;
+    
+    private void combinationSumCore(int currState,int start,Stack<Integer> pre){
+        if(currState==0){
+            res.add(new LinkedList<>(pre));
+            return;
+        }
+        for(int i=start;i<len&&currState-candidates[i]>=0;i++){
+            pre.push(candidates[i]);
+            combinationSumCore(currState-candidates[i],i,pre);
+            pre.pop();
+        }
+        
+    }
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        this.len=candidates.length;
+        this.candidates=candidates;
+        combinationSumCore(target,0,new Stack<>());
+        return res;
+    }
+}
+```
+- 第四十题 组合总数II
+```
+class Solution {
+    private List<List<Integer>> res=new LinkedList<>();
+    private int len;
+    private int[] candidates;
+    private void combinationSum2Core(int currState,int start,Stack<Integer> pre){
+        if(currState==0){
+            res.add(new LinkedList<>(pre));
+            return;
+        }
+        for(int i=start;i<len&&currState-candidates[i]>=0;i++){
+            pre.push(candidates[i]);
+            combinationSum2Core(currState-candidates[i],i+1,pre);
+            pre.pop();
+            while(i+1<len&&candidates[i]==candidates[i+1]){
+                i++;
+            }
+        }
+    }
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        this.len=candidates.length;
+        this.candidates=candidates;
+        combinationSum2Core(target,0,new Stack<>() );
+        return res;
+    }
+}
+```
