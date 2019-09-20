@@ -12,7 +12,7 @@ class Solution {
     private boolean[] used;
     private int len;
     private int[] nums;
-    
+
     private void permuteCore(int index,Stack<Integer> pre){
         if(index==len){
             res.add(new LinkedList<>(pre));
@@ -34,6 +34,42 @@ class Solution {
         this.nums=nums;
         used=new boolean[len];
         permuteCore(0,new Stack<>());
+        return res;
+    }
+}
+```
+- 第四十七题 全排列Ⅱ
+```
+class Solution {
+    private  List<List<Integer>> res=new LinkedList<>();
+    private  boolean[] used;
+    private int len;
+    private int[] nums;
+    private void permuteUniqueCore(int index,Stack<Integer> pre){
+        if(index==len){
+            res.add(new LinkedList<>(pre));
+            return;
+        }
+        for(int i=0;i<len;i++){
+            if(!used[i]){
+                pre.push(nums[i]);
+                used[i]=true;
+                permuteUniqueCore(index+1,pre);
+                pre.pop();
+                used[i]=false;
+                while(i+1<len&&nums[i]==nums[i+1]){
+                    i++;
+                }
+            }
+        }
+    }
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        Arrays.sort(nums);
+        this.nums=nums;
+        int len=nums.length;
+        this.len=len;
+        used=new boolean[len];
+        permuteUniqueCore(0,new Stack<>());
         return res;
     }
 }
