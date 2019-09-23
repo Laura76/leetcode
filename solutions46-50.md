@@ -74,3 +74,21 @@ class Solution {
     }
 }
 ```
+- 第四十八题 旋转图像
+```
+class Solution {
+    public void rotate(int[][] matrix) {
+        int n=matrix.length;
+        for(int i=0;i<=n/2-1;i++){
+            int len=n-1-i*2;
+            for(int j=0;j<len;j++){
+                int temp=matrix[i+j][n-1-i];
+                matrix[i+j][n-1-i]=matrix[i][i+j];
+                matrix[i][i+j]=matrix[n-1-i-j][i];
+                matrix[n-1-i-j][i]=matrix[n-1-i][n-1-i-j];
+                matrix[n-1-i][n-1-i-j]=temp;
+            }
+        }
+    }
+}
+```
