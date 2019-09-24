@@ -85,3 +85,49 @@ class Solution {
 }
 ```
 - 第六十题 第K个排列
+```
+class Solution {
+    private int n;
+    private int k;
+    private int[] nums;
+    private boolean[] used;
+    private String res;
+    private int[] fibonacci={1,1,2,6,24,120,720,5040,40320,362880};
+    private String getPermutationCore(int depth,Stack<String> pre){
+        if(depth==n){
+            StringBuilder builder=new StringBuilder();
+            for(String s:pre){
+                builder.append(s);
+            }
+            res=builder.toString();
+            return res;
+        }
+        for(int i=0;i<n;i++){
+            if(!used[i]){
+                if(fibonacci[n-1-depth]<k){
+                    k-=fibonacci[n-1-depth];
+                    continue;
+                }
+                pre.push(String.valueOf(nums[i]));
+                used[i]=true;
+                if(getPermutationCore(depth+1,pre)!=null){
+                    return res;
+                }
+                used[i]=false;
+                pre.pop();
+            }
+        }
+        return null;
+    }
+    public String getPermutation(int n, int k) {
+        this.n=n;
+        this.k=k;
+        this.nums=new int[n];
+        for(int i=0;i<n;i++){
+            this.nums[i]=i+1;
+        }
+        this.used=new boolean[n];
+        return getPermutationCore(0,new Stack<String>());
+    }
+}
+```
