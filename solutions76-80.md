@@ -30,3 +30,29 @@ class Solution {
     }
 }
 ```
+- 第七十八题 子集
+```
+class Solution {
+    private int len;
+    private int[] nums;
+    private List<List<Integer>> res=new ArrayList<>();
+    private void subsetsCore(Stack<Integer> pre,int posi){
+        if(posi>=len){
+            return;
+        }
+        for(int i=posi;i<len;i++){
+            pre.push(nums[i]);
+            res.add(new ArrayList<>(pre));
+            subsetsCore(pre,i+1);
+            pre.pop();
+        }
+    }
+    public List<List<Integer>> subsets(int[] nums) {
+        this.len=nums.length;
+        this.nums=nums;
+        subsetsCore(new Stack<Integer>(),0);
+        res.add(new ArrayList<>());
+        return res;
+    }
+}
+```
