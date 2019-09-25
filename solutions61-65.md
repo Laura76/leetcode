@@ -82,3 +82,35 @@ class Solution {
     }
 }
 ```
+- 第六十四题 最小路径和
+```
+class Solution {
+    public int minPathSum(int[][] grid) {
+        int row=grid.length;
+        if(row==0)return 0;
+        int col=grid[0].length;
+        int[] res=new int[col];
+        res[col-1]=grid[row-1][col-1];
+        int[] rows=new int[row];
+        rows[row-1]=grid[row-1][col-1];
+        //先确定一下边界的值
+        for(int i=col-2;i>=0;i--){
+            res[i]=grid[row-1][i]+res[i+1];
+        }
+        for(int i=row-2;i>=0;i--){
+            rows[i]=grid[i][col-1]+rows[i+1];
+        }
+        for(int i=row-2;i>=0;i--){
+            for(int j=col-2;j>=0;j--){
+                if(j==col-2){
+                    res[j]=grid[i][j]+Math.min(res[j],rows[i]);
+                }else{
+                    res[j]=grid[i][j]+Math.min(res[j],res[j+1]);
+                }
+            }
+        }
+        return res[0];
+    }
+}
+```
+- 第六十五题 有效数字 困难模式
