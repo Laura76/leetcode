@@ -56,3 +56,73 @@ class Solution {
     }
 }
 ```
+- 第七十九题 单词搜索
+```
+class Solution {
+    private int R;
+    private int C;
+    private char[] target;
+    private int[] dr={0,1,0,-1};
+    private int[] dc={1,0,-1,0};
+    private boolean[][] used;
+    private boolean existCore(int depth,int r,int c,char[][] board){
+        if(depth==target.length-1){
+            return true;
+        }
+        for(int i=0;i<4;i++){
+            int nr=r+dr[i];
+            int nc=c+dc[i];
+            if(nr>=0&&nr<R&&nc>=0&&nc<C&&!used[nr][nc]){
+                if(board[nr][nc]==target[depth+1]){
+                    used[nr][nc]=true;
+                    if(existCore(depth+1,nr,nc,board)){
+                        return true;   
+                    }else{
+                        used[nr][nc]=false;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean exist(char[][] board, String word) {
+        this.target=word.toCharArray();
+        this.R=board.length;
+        if(this.R==0)return false;
+        this.C=board[0].length;
+        this.used=new boolean[R][C];
+        for(int i=0;i<R;i++){
+            for(int j=0;j<C;j++){
+                if(board[i][j]==this.target[0]){
+                    used[i][j]=true;
+                    if(existCore(0,i,j,board))return true;
+                    used[i][j]=false;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+- 第八十题 删除排序数组中的重复项Ⅱ
+```
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int len=nums.length;
+        int pr=0;
+        int count=1;
+        for(int i=1;i<len;i++){
+            if(nums[i]==nums[pr]){
+                if(count<2){
+                    nums[++pr]=nums[i];
+                    count++;
+                }
+            }else{
+                nums[++pr]=nums[i];
+                count=1;
+            }
+        }
+        return pr+1;
+    }
+}
+```
