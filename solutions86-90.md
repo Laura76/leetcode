@@ -82,7 +82,48 @@ class Solution {
         }
     }
 }
-``
-- 第八十九题 格雷编码
 ```
+- 第八十九题 格雷编码-又没想出来一道动态规划的题目，我真是个笨蛋
+怎么死循环错误现在报错是内存限制呢？？？！！我讨厌这样
+```
+class Solution {
+    public List<Integer> grayCode(int n) {
+        List<Integer> res=new ArrayList<Integer>();
+        res.add(0);
+        for(int i=1;i<=n;i++){
+            int add=(int)Math.pow(2,i-1);
+            int len=add;
+            for(int j=len-1;j>=0;j--){
+                res.add(res.get(j)+add);
+            }
+        }
+        return res;
+    }
+}
+```
+- 第九十题 子集II-多么简单的回溯问题，希望有一天写动态规划问题也可以如此得心应手。
+```
+class Solution {
+    private List<List<Integer>> res=new ArrayList<>();
+    private void subsetsWithDupCore(int[] nums,int posi,Stack<Integer> pre){
+        if(posi==nums.length){
+            return;
+        }
+        for(int i=posi;i<nums.length;i++){
+            if(i>=posi+1&&nums[i]==nums[i-1]){
+                continue;
+            }
+            pre.push(nums[i]);
+            res.add(new ArrayList<Integer>(pre));
+            subsetsWithDupCore(nums,i+1,pre);
+            pre.pop();
+        }
+    }
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
+        subsetsWithDupCore(nums,0,new Stack<Integer>());
+        res.add(new ArrayList<>());
+        return res;
+    }
+}
 ```
