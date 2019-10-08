@@ -52,3 +52,34 @@ class Solution {
     }
 }
 ```
+- 第九十四题 二叉树的中序遍历
+注意有的时候markdown的代码片段显示有问题是因为代码片段中有空行的存在，智障？？？
+所以这个中序遍历的while的终止条件是我抄答案的，我相信以后我肯定也想不起来。
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res=new LinkedList<Integer>();
+        Stack<TreeNode> stack=new Stack<TreeNode>();
+        TreeNode curr=root;
+        while(!stack.isEmpty()||curr!=null){
+            while(curr!=null){
+                stack.push(curr);
+                curr=curr.left;
+            }
+            curr=stack.pop();
+            res.add(curr.val);
+            curr=curr.right; 
+        }
+        return res;
+    }
+}
+```
