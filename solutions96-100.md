@@ -46,3 +46,26 @@ class Solution {
     }
 }
 ```
+- 第九十九题 恢复二叉搜索树 困难  
+能不能让我离开二叉树
+- 第一百题 相同的树 终于过了前一百题了
+什么东西最恶心？递归加上二叉树
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p==null&&q==null)return true;
+        if(p==null||q==null)return false;
+        if(p.val!=q.val)return false;
+        return isSameTree(p.left,q.left)&&isSameTree(p.right,q.right);
+    }
+}
+```
