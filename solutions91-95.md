@@ -77,9 +77,50 @@ class Solution {
             }
             curr=stack.pop();
             res.add(curr.val);
-            curr=curr.right; 
+            curr=curr.right;
         }
         return res;
+    }
+}
+```
+- 第九十五题 不同的二叉搜索树 II
+我讨厌递归啊啊啊啊啊啊啊啊啊啊，谁能让我对递归开个窍吧！！！
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    private List<TreeNode> generateTreesCore(int start,int end){
+        List<TreeNode> res=new LinkedList<>();
+        if(start>end){
+            res.add(null);
+            return res;
+        }
+        for(int i=start;i<=end;i++){
+            List<TreeNode> left=generateTreesCore(start,i-1);
+            List<TreeNode> right=generateTreesCore(i+1,end);
+            for(TreeNode l:left){
+                for(TreeNode r:right){
+                    TreeNode root=new TreeNode(i);
+                    root.left=l;
+                    root.right=r;
+                    res.add(root);
+                }
+            }
+        }
+        return res;
+    }
+    public List<TreeNode> generateTrees(int n) {
+        if(n==0){
+            return new ArrayList<TreeNode>();
+        }
+        return generateTreesCore(1,n);
     }
 }
 ```
