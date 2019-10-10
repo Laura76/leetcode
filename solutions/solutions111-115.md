@@ -90,3 +90,36 @@ class Solution {
     }
 }
 ```
+- No.114 二叉树展开为链表   
+为什么这么浮躁呢？哎哎哎
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public void flatten(TreeNode root) {
+        TreeNode node=root;
+        while(node!=null){
+            if(node.left==null){
+                node=node.right;
+                continue;
+            }else{
+                TreeNode temp=node.left;
+                while(temp.right!=null){
+                    temp=temp.right;
+                }
+                temp.right=node.right;
+                node.right=node.left;
+                node.left=null;
+                node=node.right;
+            }
+        }
+    }
+}
+```
