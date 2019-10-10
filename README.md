@@ -1,21 +1,23 @@
 # leetcode
-##### solutions record
+> solutions record
+
 ---
+######原来readme是这么玩的
 ![yibo.jpeg](./pics/yibo.jpeg)
 ---
 ##### 目录
 
-- [第九十五题 不同的二叉搜索树 II **递归**](./solutions/solutions91-95.md)
+- [No.95 不同的二叉搜索树 II **递归**](./solutions/solutions91-95.md)
 
-- [第九十六题 不同的二叉搜索树 **动态规划**](./solutions/solutions96-100.md)
+- [No.96 不同的二叉搜索树 **动态规划**](./solutions/solutions96-100.md)
 
-- [第九十七题 交错字符串 **困难**](./solutions/solutions96-100.md)
+- [No.97 交错字符串 **困难**](./solutions/solutions96-100.md)
 
-- [第九十八题 验证二叉搜索树 **递归**](./solutions/solutions96-100.md)
+- [No.98 验证二叉搜索树 **递归**](./solutions/solutions96-100.md)
 
-- [第九十九题 恢复二叉搜索树 **困难**](./solutions/solutions96-100.md)
+- [No.99 恢复二叉搜索树 **困难**](./solutions/solutions96-100.md)
 
-- [第一百题 相同的树 **递归**](./solutions/solutions96-100.md)
+- [No.100 相同的树 **递归**](./solutions/solutions96-100.md)
 
 - [No.101 对称二叉树 **迭代**](./solutions/solutions101-105.md)
 
