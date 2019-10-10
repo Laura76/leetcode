@@ -51,3 +51,42 @@ class Solution {
     }
 }
 ```
+- No.113 路径总和Ⅱ  **回溯**  
+二叉树的回溯就是把循环改成了左右子树两种情况循环。
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    private List<List<Integer>> res=new LinkedList<>();
+    private void pathSumCore(TreeNode root,int target,Stack<Integer> pre){
+        if(target==0&&root.left==null&&root.right==null){
+            res.add(new LinkedList<>(pre));
+            return;
+        }
+        if(root.left!=null){
+            pre.push(root.left.val);
+            pathSumCore(root.left,target-root.left.val,pre);
+            pre.pop();
+        }
+        if(root.right!=null){
+            pre.push(root.right.val);
+            pathSumCore(root.right,target-root.right.val,pre);
+            pre.pop();
+        }
+    }
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        if(root==null)return res;
+        Stack<Integer> stack=new Stack<>();
+        stack.push(root.val);
+        pathSumCore(root,sum-root.val,stack);
+        return res;
+    }
+}
+```
