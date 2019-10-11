@@ -41,8 +41,10 @@
 
 - [No.111 二叉树的最小深度 **递归**](./solutions/solutions111-115.md)
 
-- [No.112 路经总和 **回溯**](./solutions/solutions111-115.md) 
+- [No.112 路经总和 **回溯**](./solutions/solutions111-115.md)
 
 - [No.113 路径总和Ⅱ  **回溯**](./solutions/solutions111-115.md)  
 
-- [No.114 二叉树展开为链表](./solutions/solutions111-115.md) 
+- [No.114 二叉树展开为链表](./solutions/solutions111-115.md)
+
+- [No.115 不同的子序列 **困难**](./solutions/solutions111-115.md)
