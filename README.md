@@ -66,3 +66,5 @@
 - [No.123 买卖股票的最佳时机 III **困难**](./solutions/solutions121-125.md)
 
 - [No.124 二叉树中的最大路径和 **困难**](./solutions/solutions121-125.md)
+
+- [No.125 验证回文串](./solutions/solutions121-125.md)

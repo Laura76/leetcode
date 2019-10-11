@@ -36,3 +36,37 @@ class Solution {
 ```
 - No.123 买卖股票的最佳时机 III **困难**
 - No.124 二叉树中的最大路径和 **困难**
+- No.125 验证回文串
+```
+class Solution {
+    public boolean isPalindrome(String s) {
+        HashMap<Character,Integer> map=new HashMap();
+        for(int i=0;i<=9;i++){
+            map.put((char)('0'+i),i);
+        }
+        for(int i=0;i<26;i++){
+            map.put((char)(97+i),10+i);
+            map.put((char)('A'+i),10+i);
+        }
+        int len=s.length();
+        int front=0;
+        int end=len-1;
+        while(front<end){
+            while(front<len&&map.get(s.charAt(front))==null){
+                front++;
+            }
+            while(end>-1&&map.get(s.charAt(end))==null){
+                end--;
+            }
+            if(front<end){
+                if(map.get(s.charAt(front))!=map.get(s.charAt(end)))return false;
+                else{
+                    front++;
+                    end--;
+                }
+            }
+        }
+        return true;
+    }
+}
+```
