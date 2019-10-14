@@ -3,7 +3,22 @@
 
 ---
 ###### 原来readme是这么玩的
+###### 解题原则：天性至懒
 ![yibo.jpeg](./pics/yibo.jpeg)
+
+---
+###### Practices
+
+> DFS:使用回溯实现。  
+
+回溯：写一个Core递归方法，方法的结构如下。   
+递归终止条件（看DFS的最后一层写出来）  
+循环（看DFS的第一层写出来）
+>BFS：使用队列  
+
+循环的终止条件是队列为空。  
+遍历每一层的时候将下一层的节点添加到队列。 
+
 ---
 ##### 目录
 
@@ -45,10 +60,6 @@
 
 - [No.113 路径总和Ⅱ  **回溯**](./solutions/solutions111-115.md)  
 
-- [No.114 二叉树展开为链表](./solutions/solutions111-115.md) 
-
-- [No.115 不同的子序列 **困难**](./solutions/solutions111-115.md)
-=======
 - [No.114 二叉树展开为链表](./solutions/solutions111-115.md)
 
 - [No.115 不同的子序列 **困难**](./solutions/solutions111-115.md)
