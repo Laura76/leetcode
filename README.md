@@ -17,7 +17,7 @@
 >BFS：使用队列  
 
 循环的终止条件是队列为空。  
-遍历每一层的时候将下一层的节点添加到队列。 
+遍历每一层的时候将下一层的节点添加到队列。
 
 ---
 ##### 目录
@@ -83,3 +83,33 @@
 - [No.124 二叉树中的最大路径和 **困难**](./solutions/solutions121-125.md)
 
 - [No.125 验证回文串](./solutions/solutions121-125.md)
+
+- [No.126 单词接龙II **困难**](./solutions/solutions126-130.md)
+
+- [No.127 单词接龙 **BFS**](./solutions/solutions126-130.md)
+
+- [No.128 最长连续序列 **困难**](./solutions/solutions126-130.md)
+
+- [No.129 求根到叶子节点数字之和 **回溯**](./solutions/solutions126-130.md)
+
+- [No.130 被围绕的区域 **回溯** **dfs**](./solutions/solutions126-130.md)
+
+- [No.131 分割回文串 **回溯**](./solutions/solutions131-135.md)
+
+- [No.132 分割回文串 II  **困难**](./solutions/solutions131-135.md)
+
+- [No.133 克隆图 **回溯**](./solutions/solutions131-135.md)
+
+- [No.134 加油站](./solutions/solutions131-135.md)
+
+- [No.135 分发糖果 **困难**](./solutions/solutions131-135.md)
+
+- [No.136 只出现一次的数字 **数学**](./solutions/solutions136-140.md)
+
+- [No.137 只出现一次的数字 II  **map**](./solutions/solutions136-140.md)
+
+- [No.138 复制带随机指针的链表 **回溯**](./solutions/solutions136-140.md)
+
+- [No.139 单词拆分  **带记忆表的回溯**](./solutions/solutions136-140.md)
+
+- [No.140 单词拆分 II **困难**](./solutions/solutions136-140.md)

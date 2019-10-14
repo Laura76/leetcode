@@ -48,3 +48,31 @@ sclass Solution {
     }
 }
 ```
+-No.139 单词拆分  **带记忆表的回溯**
+```
+class Solution {
+    private int len;
+    Set<String> set=new HashSet<String>();
+    private boolean wordBreakCore(int curr,String s,Boolean[] memo){
+        if(curr==len){
+            return true;
+        }
+        if(memo[curr]!=null)return memo[curr];
+        for(int i=1;curr+i<=len;i++){
+            if(set.contains(s.substring(curr,curr+i))){
+                if(wordBreakCore(curr+i,s,memo))return true;
+                else memo[curr+i]=false;
+            }
+        }
+        return false;
+    }
+
+    public boolean wordBreak(String s, List<String> wordDict) {
+        this.len=s.length();
+        Boolean[] memo=new Boolean[len];
+        for(String str:wordDict)this.set.add(str);
+        return wordBreakCore(0,s,memo);
+    }
+}
+```
+- No.140 单词拆分 II **困难**

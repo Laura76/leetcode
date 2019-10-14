@@ -80,7 +80,7 @@ class Solution {
     }
 }
 ```
-- No. 被围绕的区域 **回溯** **dfs**
+- No.130 被围绕的区域 **回溯** **dfs**
 ```
 class Solution {
     private int row,col;
