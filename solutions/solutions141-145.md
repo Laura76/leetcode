@@ -66,3 +66,44 @@ public class Solution {
     }
 }
 ```
+- N0.143 重排链表       
+报内存限制的错误时：将一些废置的ListNode重新使用
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    private ListNode reverseCore(ListNode node){
+        if(node.next==null)return node;
+        ListNode pre=reverseCore(node.next);
+        node.next.next=node;
+        node.next=null;
+        return pre;
+    }
+    public void reorderList(ListNode head) {
+        if(head==null||head.next==null)return;
+        ListNode tor=head;
+        ListNode hare=head;
+        while(hare!=null&&hare.next!=null){
+            tor=tor.next;
+            hare=hare.next.next;
+        }
+        //递归逆转后半段链表
+        ListNode h2=reverseCore(tor);
+        //交替链接
+        while(h2.next!=null&&head!=null){
+            tor=head.next;
+            hare=h2.next;
+            head.next=h2;
+            h2.next=tor;
+            head=h2.next;
+            h2=hare;
+        }
+    }
+}
+```
