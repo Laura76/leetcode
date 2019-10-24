@@ -107,3 +107,35 @@ class Solution {
     }
 }
 ```
+No.144 二叉树的前序遍历  **迭代实现** **栈**
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        Stack<TreeNode> stack=new Stack<TreeNode>();
+        List<Integer> res=new LinkedList<Integer>();
+        if(root==null)return res;
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode node=stack.pop();
+            res.add(node.val);
+            if(node.right!=null){
+                stack.push(node.right);
+            }
+            if(node.left!=null){
+                stack.push(node.left);
+            }
+        }
+        return res;
+    }
+}
+```
+No.145 二叉树的后序遍历 **困难**
