@@ -530,3 +530,82 @@ class Solution {
     }
 }
 ```
+- 549.二叉树中最长的连续序列  
+回溯递归
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    int res=0;
+    private int[] longestConsecutiveCore(TreeNode node){
+        int[] inDe=new int[2];
+        if(node.left==null&&node.right==null){
+            return inDe;
+        }
+        if(node.left!=null){
+            if(node.left.val==node.val+1){
+                inDe[0]=longestConsecutiveCore(node.left)[0]+1;
+            }else if(node.left.val+1==node.val){
+                inDe[1]=longestConsecutiveCore(node.left)[1]+1;
+            }else{
+                longestConsecutiveCore(node.left);
+            }
+        }
+        if(node.right!=null){
+            if(node.right.val==node.val+1){
+                inDe[0]=Math.max(inDe[0],longestConsecutiveCore(node.right)[0]+1);
+            }else if(node.right.val+1==node.val){
+                inDe[1]=Math.max(inDe[1],longestConsecutiveCore(node.right)[1]+1);
+            }else{
+                longestConsecutiveCore(node.right);
+            }
+        }
+        res=Math.max(res,inDe[0]+inDe[1]);
+        return inDe;
+    }
+    public int longestConsecutive(TreeNode root) {
+        if(root==null) return res;
+        longestConsecutiveCore(root);
+        return res+1;
+    }
+}
+```
+- 1166.设计文件系统  
+哈希表
+```
+class FileSystem {
+    HashMap<String,Integer> map=new HashMap<String,Integer>();
+    public FileSystem() {
+
+    }
+
+    public boolean createPath(String path, int value) {
+        if(path.length()==0||path.equals("/"))return false;
+        if(path.lastIndexOf("/")==0||map.containsKey(path.substring(0,path.lastIndexOf("/"))) ){
+            if(!map.containsKey(path)){
+                map.put(path,value);
+                return true;
+            }else return false;
+        }else{
+            return false;
+        }
+    }
+
+    public int get(String path) {
+        return map.getOrDefault(path,-1);
+    }
+}
+/**
+ * Your FileSystem object will be instantiated and called as such:
+ * FileSystem obj = new FileSystem();
+ * boolean param_1 = obj.createPath(path,value);
+ * int param_2 = obj.get(path);
+ */
+```
