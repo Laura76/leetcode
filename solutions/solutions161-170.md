@@ -100,3 +100,101 @@ class Solution {
     }
 }
 ```
+- No.166 分数到小数
+```
+class Solution {
+    public String fractionToDecimal(int numerator, int denominator) {
+        if(numerator==0)return "0";
+        StringBuilder builder=new StringBuilder();
+        if(numerator<0^denominator<0){
+            builder.append("-");
+        }
+        Long numeratorL=Math.abs(Long.valueOf(numerator));
+        Long denominatorL=Math.abs(Long.valueOf(denominator));
+        String quotient=String.valueOf((numeratorL/denominatorL));
+        builder.append(quotient);
+        Long remainder=(numeratorL%denominatorL);
+        if(remainder==0)return builder.toString();
+        builder.append(".");
+        HashMap<Long,Integer> map=new HashMap<Long,Integer>();
+        while(remainder!=0){
+            if(map.containsKey(remainder)){
+                builder.insert(map.get(remainder),"(");
+                builder.append(")");
+                break;
+            }
+            map.put(remainder,builder.length());
+            remainder*=10;
+            builder.append(remainder/denominatorL);
+            remainder%=denominatorL;
+        }
+        return builder.toString();
+    }
+}
+```
+- No.167. 两数之和 II - 输入有序数组
+```
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        HashMap<Integer,Integer> map=new HashMap<Integer,Integer>();
+        for(int i=0;i<numbers.length;i++){
+            map.put(numbers[i],i);
+        }
+        int[] res=new int[2];
+        for(int i=0;i<numbers.length;i++){
+            if(map.containsKey(target-numbers[i])&&(i!=map.get(target-numbers[i]))){
+                res[0]=i>map.get(target-numbers[i])?map.get(target-numbers[i])+1:i+1;
+                res[1]=i>map.get(target-numbers[i])?i+1:map.get(target-numbers[i])+1;
+            }
+        }
+        return res;
+    }
+}
+```
+- No.168. Excel Sheet Column Title
+```
+class Solution {
+    public String convertToTitle(int n) {
+        HashMap<Integer,Character> map=new HashMap<Integer,Character>();
+        for(int i=0;i<26;i++){
+            map.put(i+1,(char)(65+i));
+        }
+        StringBuilder builder=new StringBuilder();
+        while(n!=0){
+            if(n%26!=0){
+                builder.append(map.get(n%26));
+                if(n/26<=26&&n/26>0){
+                    builder.append(map.get(n/26));
+                    break;
+                }else{
+                    n/=26;
+                }
+            }else {
+                builder.append("Z");
+                if((n/26-1)<=26&&(n/26-1)>0){
+                    builder.append(map.get(n/26-1));
+                    break;
+                }else{
+                    n=n/26-1;
+                }
+            }           
+        }
+        return builder.reverse().toString();
+    }
+}
+```
+- No.169. Majority Element
+```
+class Solution {
+    public int majorityElement(int[] nums) {
+        int times=nums.length/2;
+        HashMap<Integer,Integer> map=new HashMap<Integer,Integer>();
+        for(int i=0;i<nums.length;i++){
+            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+            if(map.get(nums[i])>times)return nums[i];
+        }
+        return 0;
+    }
+}
+```
+- No.170 网站暂时崩掉了
