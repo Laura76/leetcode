@@ -56,7 +56,7 @@ select p.FirstName,p.LastName,addr.City,addr.State
 from Person p left join Address addr
 on p.PersonId=addr.PersonId
 ```
-- No.176 第二高的薪水 **Oraclesql**
+- No.176 第二高的薪水 **Oraclesql** **row_number**
 ```
 /* Write your PL/SQL query statement below */
 select min(Salary) SecondHighestSalary
@@ -65,16 +65,51 @@ from (select Salary,row_number() over(order by Salary desc) rn
       )
 where rn!=1 and rn<=2
 ```
-- No.177 第N高的薪水
+- No.177 第N高的薪水  **row_number**
 ```
 CREATE FUNCTION getNthHighestSalary(N IN NUMBER) RETURN NUMBER IS
 result NUMBER;
 BEGIN
     /* Write your PL/SQL query statement below */
-    select Salary into result 
+    select Salary into result
     from (select Salary,row_number()over(order by Salary desc) rn
          from (select distinct Salary from Employee) )
     where rn=N ;
     RETURN result;
 END;
+```
+- No.178 分数排名  **dense_rank**
+```
+/* Write your PL/SQL query statement below */
+select Score,dense_rank()over(order by Score desc) Rank
+from Scores
+```
+- No.179 最大数  **comparator接口**
+```
+class Solution {
+    private class myComparator implements Comparator<String>{
+        @Override
+        public int compare(String a,String b){
+            String s1=a+b;
+            String s2=b+a;
+            return s2.compareTo(s1);
+        }
+    }
+    public String largestNumber(int[] nums){
+        int len=nums.length;
+        String[] strs=new String[len];
+        for(int i=0;i<len;i++)strs[i]=String.valueOf(nums[i]);
+        Arrays.sort(strs,new myComparator());
+        StringBuilder builder=new StringBuilder();
+        for(String str:strs)builder.append(str);
+        return builder.charAt(0)=='0'?"0":builder.toString();
+    }
+}
+```
+- No.180 连续出现的数字  **注意连续**
+```
+select distinct a.Num ConsecutiveNums
+from Logs a,Logs b,Logs c
+where a.Id=b.Id-1 and b.Id=c.Id-1 and
+a.Num=b.Num and b.Num=c.Num
 ```
