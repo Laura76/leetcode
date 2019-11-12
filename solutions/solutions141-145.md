@@ -66,7 +66,7 @@ public class Solution {
     }
 }
 ```
-- N0.143 重排链表       
+- No.143 重排链表       
 报内存限制的错误时：将一些废置的ListNode重新使用
 ```
 /**
@@ -107,7 +107,7 @@ class Solution {
     }
 }
 ```
-No.144 二叉树的前序遍历  **迭代实现** **栈**
+- No.144 二叉树的前序遍历  **迭代实现** **栈**
 ```
 /**
  * Definition for a binary tree node.
@@ -138,4 +138,4 @@ class Solution {
     }
 }
 ```
-No.145 二叉树的后序遍历 **困难**
+- No.145 二叉树的后序遍历 **困难**

@@ -113,3 +113,161 @@
 - [No.139 单词拆分  **带记忆表的回溯**](./solutions/solutions136-140.md)
 
 - [No.140 单词拆分 II **困难**](./solutions/solutions136-140.md)
+
+- [No.141 环形链表 **双指针**](./solutions/solutions141-145.md)
+
+- [No.142 环形链表Ⅱ  **Floyd算法**](./solutions/solutions141-145.md)
+
+- [No.143 重排链表](./solutions/solutions141-145.md)
+
+- [No.144 二叉树的前序遍历  **迭代实现** **栈**](./solutions/solutions141-145.md)
+
+- [No.145 二叉树的后序遍历 **困难**](./solutions/solutions141-145.md)
+
+- [No.146 LRU缓存机制  **LinkedHashMap(有序字典)**](./solutions/solutions146-150.md)
+
+- [No.147 对链表进行插入排序  **让链表远离我**  ](./solutions/solutions146-150.md)
+
+- [No.148 排序链表  **走开啊链表** ](./solutions/solutions146-150.md)
+
+- [No.149 直线上最多的点数  **困难模式** ](./solutions/solutions146-150.md)
+
+- [No.150 逆波兰表达式求值  **栈**](./solutions/solutions146-150.md)
+
+- [No.151 翻转字符串里的单词  **栈**](./solutions/solutions151-160.md)
+
+- [No.152 乘积最大子序列  **dp**](./solutions/solutions151-160.md)
+
+- [No.153 寻找旋转排序数组中的最小值 **二分法***](./solutions/solutions151-160.md)
+
+- [No.154 寻找旋转排序数组中的最小值II **困难** ](./solutions/solutions151-160.md)
+
+- [No.155 最小栈  **辅助栈** ](./solutions/solutions151-160.md)
+
+- [No.156 上下翻转二叉树  **递归**](./solutions/solutions151-160.md)
+
+- [No.157  用 Read4 读取 N 个字符 ](./solutions/solutions151-160.md)
+
+- [No.158 用 Read4 读取 N 个字符 II  **困难**](./solutions/solutions151-160.md)
+
+- [No.159 至多包含两个不同字符的最长子串  **困难**](./solutions/solutions151-160.md)
+
+- [No.160. 相交链表](./solutions/solutions151-160.md)
+
+- [No.161 相隔为 1 的编辑距离](./solutions/solutions161-170.md)
+
+- [No.162 寻找峰值](./solutions/solutions161-170.md)
+
+- [No.163 缺失的区间](./solutions/solutions161-170.md)
+
+- [No.164 最大间距 **困难**](./solutions/solutions161-170.md)
+
+- [No.165 比较版本号](./solutions/solutions161-170.md)
+
+- [No.166 分数到小数](./solutions/solutions161-170.md)
+
+- [No.167. 两数之和 II - 输入有序数组](./solutions/solutions161-170.md)
+
+- [No.168. Excel Sheet Column Title](./solutions/solutions161-170.md)
+
+- [No.169. Majority Element](./solutions/solutions161-170.md)
+
+- [No.170 网站暂时崩掉了](./solutions/solutions161-170.md)
+
+- [No.171. Excel Sheet Column Number](./solutions/solutions171-180.md)
+
+- [No.172 阶乘后的零 **数学**](./solutions/solutions171-180.md)
+
+- [No.173 二叉搜索树迭代器  **栈**](./solutions/solutions171-180.md)
+
+- [No.174 地下城游戏 **困难**](./solutions/solutions171-180.md)
+
+- [No.175 组合两个表  **Oraclesql**](./solutions/solutions171-180.md)
+
+- [No.176 第二高的薪水 **Oraclesql** **row_number**](./solutions/solutions171-180.md)
+
+- [No.177 第N高的薪水  **row_number**](./solutions/solutions171-180.md)
+
+- [No.178 分数排名  **dense_rank**](./solutions/solutions171-180.md)
+
+- [No.179 最大数  **comparator接口**](./solutions/solutions171-180.md)
+
+- [No.180 连续出现的数字  **注意连续**](./solutions/solutions171-180.md)
+
+- [No.181 超过经理收入的员工  **自连接**](./solutions/solutions181-190.md)
+
+- [No.182 查找重复的电子邮箱  **自连接**](./solutions/solutions181-190.md)
+
+- [No.183 从不订购的客户  **not in**](./solutions/solutions181-190.md)
+
+- [No.184 部门工资最高的员工  **dense_rank**](./solutions/solutions181-190.md)
+
+- [No.185 部门工资前三高的所有员工  **dense_rank**](./solutions/solutions181-190.md)
+
+- [No.186 翻转字符串里的单词 II  **两次翻转***](./solutions/solutions181-190.md)
+
+- [No.187 重复的DNA序列  **理解题意**](./solutions/solutions181-190.md)
+
+- [No.188 买卖股票的最佳时机  **困难**](./solutions/solutions181-190.md)
+
+- [No.189 旋转数组](./solutions/solutions181-190.md)
+
+- [No.190 颠倒二进制位  **位运算**](./solutions/solutions181-190.md)
+
+- [No.191 位1的个数  **位运算**](./solutions/solutions191-200.md)
+
+- [No.192 统计词频  **Bash**](./solutions/solutions191-200.md)
+
+- [No.193 有效电话号码  **Bash**](./solutions/solutions191-200.md)
+
+- [No.194 转置文件  **Bash**](./solutions/solutions191-200.md)
+
+- [No.195 第十行  **Bash**](./solutions/solutions191-200.md)
+
+- [No.196 删除重复的电子邮箱  **使用子查询避开这样的错误：不允许同视查询和删除同一张表**](./solutions/solutions191-200.md)
+
+- [No.197 上升的温度](./solutions/solutions191-200.md)
+
+- [No.198 打家劫舍 **dp**](./solutions/solutions191-200.md)
+
+- [No.199 二叉树的左视图  **一个辅助的queue来记录二叉树的层数**](./solutions/solutions191-200.md)
+
+- [No.200 岛屿数量  **dfs**](./solutions/solutions191-200.md)
+
+- [No.201 数字范围按位与  **数学***](./solutions/solutions201-210.md)
+
+- [No.202 欢乐数  **数学**](./solutions/solutions201-210.md)
+
+- [No.203 移除链表元素  **快慢指针**](./solutions/solutions201-210.md)
+
+- [No.204 计数质数  **素数**](./solutions/solutions201-210.md)
+
+- [No.205 同构字符串  **哈希表**](./solutions/solutions201-210.md)
+
+- [No.206 反转链表  **迭代**](./solutions/solutions201-210.md)
+
+- [No.207 课程表  **入度表**](./solutions/solutions201-210.md)
+
+- [No.208 实现 Trie (前缀树)  **前缀树**](./solutions/solutions201-210.md)
+
+- [No.209 长度最小的子数组  **双指针**](./solutions/solutions201-210.md)
+
+- [No.210 课程表Ⅱ  **拓扑排序**](./solutions/solutions201-210.md)
+
+- [No.211 添加与搜索单词 - 数据结构设计  **字典树/前缀树/TrieTree** **dfs**](./solutions/solutions211-220.md)
+
+- [No.212. 单词搜索 II  **困难**](./solutions/solutions211-220.md)
+
+- [No.213 打家劫舍Ⅱ  **dp**](./solutions/solutions211-220.md)
+
+- [No.214 最短回文串  **困难**](./solutions/solutions211-220.md)
+
+- [No.215 数组中的第K个最大元素](./solutions/solutions211-220.md)
+
+- [No.216 组合总和 III  **dfs**](./solutions/solutions211-220.md)
+
+- [No.217 存在重复元素  **哈希表**](./solutions/solutions211-220.md)
+
+- [No.218 天际线问题  **困难** ](./solutions/solutions211-220.md)
+
+- [No.219 存在重复元素 Ⅱ ](./solutions/solutions211-220.md)
