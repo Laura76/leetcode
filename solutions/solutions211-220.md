@@ -156,3 +156,18 @@ class Solution {
     }
 }
 ```
+- No.220 存在重复元素 III  **int超出界限**
+```
+class Solution {
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        int len=nums.length;
+        for(int i=0;i<len-1;i++){
+            int j=(i+k>=len)?len-1:i+k;
+            for(;j>i;j--){
+                if(Math.abs((long)nums[j]-(long)nums[i])<=t)return true;
+            }
+        }
+        return false;
+    }
+}
+```
