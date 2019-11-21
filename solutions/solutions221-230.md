@@ -146,3 +146,106 @@ class Solution {
     }
 }
 ```
+- 228.汇总区间
+```
+class Solution {
+    public List<String> summaryRanges(int[] nums) {
+        int len=nums.length;
+        List<String> res=new LinkedList<String>();
+        if(len==0)return res;
+        int start=nums[0];
+        if(len==1){
+            res.add(String.valueOf(start));
+            return res;
+        }
+        int end=nums[1];
+        for(int i=1;i<len;i++){
+            while(i<len&&nums[i]==nums[i-1]+1)i++;
+            end=nums[i-1];
+            if(end==start)res.add(String.valueOf(start));
+            else res.add(String.valueOf(start)+"->"+String.valueOf(end));
+            if(i<len)start=nums[i];
+        }
+        if(start==nums[len-1])res.add(String.valueOf(start));
+        return res;
+    }
+}
+```
+- 229.求众数 Ⅱ  **多数投票**
+```
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        List<Integer> res=new LinkedList<Integer>();
+        int len=nums.length;
+        if(len==0)return res;
+        if(len==1){
+            res.add(nums[0]);return res;
+        }else if(len==2){
+            res.add(nums[0]);if(nums[1]!=nums[0])res.add(nums[1]);
+            return res;
+        }
+        int candiA=nums[0];
+        int candiB=nums[1];
+        int pollA=0,pollB=0;
+        for(int i=0;i<len;i++){
+            if(nums[i]==candiA)pollA++;
+            else if(nums[i]==candiB)pollB++;
+            else{
+                if(pollA==0){
+                    candiA=nums[i];
+                    pollA++;
+                }else if(pollB==0){
+                    candiB=nums[i];
+                    pollB++;
+                }else{
+                    pollA--;pollB--;
+                }
+            }
+        }
+        pollA=0;pollB=0;
+        for(int i=0;i<len;i++){
+            if(nums[i]==candiA)pollA++;
+            if(nums[i]==candiB)pollB++;
+        }
+        if(pollA>len/3)res.add(candiA);
+        if(pollB>len/3&&candiB!=candiA)res.add(candiB);
+        return res;
+    }
+}
+```
+- 230.二叉搜索树中第K小的元素  **dfs**  
+有点忘记dfs怎么写的了......
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    private boolean isFind=false;
+    private int res=0;
+    private void dfs(TreeNode node,int k,Stack<Integer> stack){  
+        if(isFind==true)return;            
+        if(node.left!=null){
+            dfs(node.left,k,stack);
+        }
+        stack.push(node.val);
+        if(stack.size()==k){
+            res=stack.peek();
+            isFind=true;return;
+        }
+        if(node.right!=null){
+            dfs(node.right,k,stack);
+        }
+    }
+    public int kthSmallest(TreeNode root, int k) {
+        Stack<Integer> stack=new Stack<Integer>();
+        dfs(root,k,stack);
+        return res;
+    }
+}
+```
