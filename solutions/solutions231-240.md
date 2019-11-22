@@ -52,3 +52,30 @@ class MyQueue {
  * boolean param_4 = obj.empty();
  */
 ```
+- No.233 数字 1 的个数  
+- No.234 回文链表
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        Stack<Integer> s=new Stack<Integer>();
+        ListNode temp=head;
+        while(temp!=null){
+            s.push(temp.val);
+            temp=temp.next;
+        }
+        while(head!=null){
+            if(s.pop()!=head.val)return false;
+            head=head.next;
+        }
+        return true;
+    }
+}
+```
