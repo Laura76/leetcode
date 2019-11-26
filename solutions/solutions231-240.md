@@ -79,3 +79,131 @@ class Solution {
     }
 }
 ```
+- No.235 二叉搜索树的最近公共祖先  **dfs**  
+我好强啊
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    private TreeNode res;
+    //返回值：该子树中是否具有节点p或者q
+    public boolean dfs(TreeNode node,TreeNode p,TreeNode q){
+        boolean hasPQ=false;
+        if(node==p||node==q)hasPQ=true;
+        boolean leftHas=false,rightHas=false;
+        if(node.left!=null){
+            leftHas=dfs(node.left,p,q);
+        }
+        if(leftHas==true)hasPQ=true;
+        if(node.right!=null){
+            rightHas=dfs(node.right,p,q);
+        }
+        if(rightHas==true)hasPQ=true;
+        if(node==p||node==q){
+            if(leftHas==true||rightHas==true){
+                res=node;
+            }
+        }else{
+            if(leftHas==true&&rightHas==true){
+                res=node;
+            }
+        }
+        return hasPQ;
+    }
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        dfs(root,p,q);
+        return res;
+    }
+}
+```
+- No.236 二叉树的最近公共祖先  **dfs**  
+同上一题一样的解答  
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    private TreeNode res;
+    //返回值：该子树中是否具有节点p或者q
+    public boolean dfs(TreeNode node,TreeNode p,TreeNode q){
+        boolean hasPQ=false;
+        if(node==p||node==q)hasPQ=true;
+        boolean leftHas=false,rightHas=false;
+        if(node.left!=null){
+            leftHas=dfs(node.left,p,q);
+        }
+        if(leftHas==true)hasPQ=true;
+        if(node.right!=null){
+            rightHas=dfs(node.right,p,q);
+        }
+        if(rightHas==true)hasPQ=true;
+        if(node==p||node==q){
+            if(leftHas==true||rightHas==true){
+                res=node;
+            }
+        }else{
+            if(leftHas==true&&rightHas==true){
+                res=node;
+            }
+        }
+        return hasPQ;
+    }
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        dfs(root,p,q);
+        return res;
+    }
+}
+```
+- No.237 删除链表中的节点    
+傻逼题目，传入的参数是链表中的节点，删除该节点就是：把该节点的值改成下一个节点的值，该节点的指针改成下一个节点的指针。
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public void deleteNode(ListNode node) {
+        node.val=node.next.val;
+        node.next=node.next.next;
+    }
+}
+```
+- No.238 除自身以外数组的乘积  **左积乘右积**
+```
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int len=nums.length;
+        int[] res=new int[len];
+        int k=nums[0];
+        for(int i=1;i<len;i++){
+            res[i]=k;
+            k*=nums[i];
+        }
+        k=nums[len-1];
+        for(int i=len-2;i>0;i--){
+            res[i]*=k;
+            k*=nums[i];
+        }
+        res[0]=k;
+        return res;
+    }
+}
+```
+- No.239 滑动窗口最大值  **困难**
