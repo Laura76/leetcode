@@ -207,3 +207,21 @@ class Solution {
 }
 ```
 - No.239 滑动窗口最大值  **困难**
+- No.240 搜索二维矩阵 II  
+```
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int m=matrix.length;
+        if(m==0)return false;
+        int n=matrix[0].length;
+        if(n==0)return false;
+        int row=0,col=n-1;
+        while(true){
+            if(matrix[row][col]==target)return true;
+            else if(matrix[row][col]<target)row++;
+            else if(matrix[row][col]>target)col--;
+            if(row>=m||col<0)return false;
+        }
+    }
+}
+```
