@@ -53,6 +53,50 @@ public class Solution extends VersionControl {
     }
 }
 ```
+- No.279 完全平方数 **记忆数组**  
+注意：dp方法待做
+```
+class Solution {
+    private boolean[] squareMemory;
+    private int[] memory;
+    private int core(int n){
+        if(squareMemory[n]){
+            memory[n]=1;
+            return 1;
+        }
+        int count=1,start=1;
+        while(start<=n){
+            start=(count+1)*(count+1);
+            count++;
+        }
+        start=(count-1)*(count-1);
+        int res=Integer.MAX_VALUE;
+        for(int i=start;(i>=1);i--){
+            if(squareMemory[i]){
+                int temp=0;
+                if(memory[n-i]==0){
+                    temp=core(n-i);
+                }else{
+                    temp=memory[n-i];
+                }
+                if(temp!=0)res=Math.min(res,temp+1);
+            }
+        }
+        this.memory[n]=(res==Integer.MAX_VALUE?0:res);
+        return memory[n];
+    }
+    public int numSquares(int n) {
+        this.squareMemory=new boolean[n+1];
+        for(int i=1;i<=n;i++){
+            int temp=(int)Math.sqrt(i);
+            squareMemory[i]=(temp*temp==i);
+        }
+        this.memory=new int[n+1];
+        return core(n);
+    }
+}
+```
+- No.280 摆动排序 **氪金**
 
 
 
