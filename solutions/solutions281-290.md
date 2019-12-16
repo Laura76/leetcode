@@ -132,3 +132,31 @@ class Solution {
     }
 }
 ```
+- No.290 单词规律
+```
+class Solution {
+    public boolean wordPattern(String pattern, String str) {
+        int lenP=pattern.length();
+        String[] words=str.split(" ");
+        int lenS=words.length;
+        if(lenP!=lenS)return false;
+        char[] chars=pattern.toCharArray();
+        //记录对应的关系
+        HashMap<String,Character> map=new HashMap<String,Character>();
+        int[] alphabet=new int[26];
+        for(int i=0;i<lenS;i++){
+            String temp=words[i];
+            if(map.containsKey(temp)){
+                //如果和之前已经记录的单词不符合的话，就返回false
+                if(chars[i]!=map.get(temp) )return false;
+            }else{
+                alphabet[chars[i]-'a']++;
+                if(alphabet[chars[i]-'a']==2)return false;
+                map.put(temp,chars[i]);
+            }
+        }
+
+        return true;
+    }
+}
+```
