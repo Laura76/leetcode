@@ -144,3 +144,26 @@ class NumArray {
  */
 ```
 - No.308 **困难**
+- No.309 最佳买卖股票时机含冷冻期  
+我这辈子就是会不了dp了
+```
+class Solution {
+    public int maxProfit(int[] prices) {
+        int len=prices.length;
+        if(len==0)return 0;
+        int[] hold=new int[len+1];
+        int[] sold=new int[len+1];
+        int[] rest=new int[len+1];
+        hold[1]=-prices[0];
+        sold[1]=0;
+        rest[1]=0;
+        for(int i=2;i<=len;i++){
+            hold[i]=Math.max(hold[i-1],rest[i-1]-prices[i-1]);
+            sold[i]=hold[i-1]+prices[i-1];
+            rest[i]=Math.max(sold[i-1],rest[i-1]);
+        }
+        return Math.max(sold[len],rest[len]);
+    }
+}
+```
+- No.310 最小高度数 **我要烦死了，以后再说**
